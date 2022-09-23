@@ -1,0 +1,18 @@
+<h1>Login Form</h1>
+<form>
+  <div>
+    <label>
+      User Name:
+      <input class="form-control" id="lun" name="lun" placeholder="Your User Name" [formControl]="lun">
+    </label>
+  </div>
+  <div>
+    <label>
+      Password:
+      <input type="password" class="form-control mt-2" id="lpwd" name="lpwd" placeholder="Your Password" [formControl]="lpwd">
+    </label>
+  </div>
+ 
+    <button class="btn btn-success me-2 ms-2" type="button" (click)="login()">Login</button>
+    <a class="btn btn-danger mt-2 ms-2" routerLink="/" routerLinkActive="link-active">Back</a>
+  </form>

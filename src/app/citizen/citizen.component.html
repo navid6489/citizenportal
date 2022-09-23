@@ -1,0 +1,117 @@
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="User Profile">
+        <h3>User Profile</h3>
+        <div class="row">
+            <div class="col-md-2">
+            <label>Name:</label>
+            </div>
+          <div class="col-md-2">
+            <label>{{userobj.name}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            <label>User Name:</label>
+            </div>
+          <div class="col-md-2">
+            <label>{{userobj.un}}</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+            <label>Driving Liscence Number:</label>
+            </div>
+          <div class="col-md-3">
+            <div *ngIf="userobj.dflag=='0'">
+                <label>Not Applied Yet</label>
+                <button class="btn btn-success ms-2" type="button" (click)='ADL()'>Apply</button>
+              </div>
+              <div *ngIf="userobj.dflag=='1'">
+                <label>Applied Waiting For Approval</label>
+              </div>
+              <div *ngIf="userobj.dflag=='2'">
+                <label>{{userobj.dl}}</label>
+              </div>
+            </div>
+        </div>
+       
+    </mat-tab>
+    <mat-tab label="User Fines & Taxes">
+        <h3>User Fines & Taxes</h3>
+        <div class="row">
+            <div class="col-md-2">
+            <label>Name:</label>
+            </div>
+          <div class="col-md-2">
+            <label>{{userobj.name}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            <label>Total Fine:</label>
+            </div>
+          <div class="col-md-2">
+            <label>$ {{userobj.pf}}</label>
+            </div>
+
+            <div class="col-md-4">
+                <form>
+                  <div class="col-md-6">
+                   
+                     
+                      <input class="form-control" id="finetf" name="finetf" placeholder="Enter Fine Amount" [formControl]="finetf">
+                   
+                  </div>
+                   <div class="col-md-3 mt-2 mb-2">
+                    <button class="btn btn-success" type="button" (click)='pFine()'>Pay Fine</button>
+                    </div>
+                  </form>
+                  </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            <label>Total Tax:</label>
+            </div>
+          <div class="col-md-2">
+            <label>$ {{userobj.pt}}</label>
+            </div>
+            
+            <div class="col-md-4">
+                <form>
+                  <div class="col-md-6">
+                   
+                     
+                      <input class="form-control" id="taxtf" name="taxtf" placeholder="Enter Tax Amount" [formControl]="taxtf">
+                   
+                  </div>
+                   <div class="col-md-3 mt-2 mb-2">
+                    <button class="btn btn-success" type="button" (click)='tFine()'>Pay Tax</button>
+                    </div>
+                  </form>
+                  </div>  
+        </div>
+        
+    </mat-tab>
+    <mat-tab label="Launch Complaints">
+      <h3>Enter Complaints</h3>
+      <div class="row">
+        <div class="col-md-2">
+        <label>Complaint:</label>
+        </div>  
+        <div class="col-md-4">
+            <form>
+              <div class="col-md-6">
+               
+                 
+                  <textarea class="form-control" id="comp" name="comp" placeholder="Enter your Complaint" [formControl]="compta"></textarea>
+               
+              </div>
+               <div class="col-md-3 mt-2 mb-2">
+                <button class="btn btn-success" type="button" (click)='sendComplaint()'>Send</button>
+                </div>
+              </form>
+              </div>  
+            </div>
+    </mat-tab>
+  </mat-tab-group>

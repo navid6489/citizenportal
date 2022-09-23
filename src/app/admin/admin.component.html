@@ -1,0 +1,106 @@
+<p>Admin Panel</p>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="User Applications">
+        <h3>User Applications</h3>
+        <div class="table-responsive"> 
+            <form>
+        <table class="table">
+            <tr>
+              <th>User Name</th>
+              <th>Driving Liscence</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let userApplication of userApplications;">
+              <td>{{userApplication.name}}</td>
+              <td>
+                
+                    <input class="form-control" id="dl" name="dl" placeholder="Driving Liscence Number" [formControl]="dl">
+                   
+                
+              </td>
+              <td><button class="btn btn-success" type="button" (click)='dlApprove(userApplication.id)'>Approve</button></td>
+            
+            </tr>
+            
+          </table>
+            </form>
+        </div>
+    </mat-tab>
+    <mat-tab label="User Fines & Taxes">
+        <h3>User Fines & Taxes</h3>
+        <div *ngFor="let userFTs of userFT;">
+            <div class="row">
+                <div class="col-md-2">
+                <label>Name:</label>
+                </div>
+              <div class="col-md-2">
+                <label>{{userFTs.name}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                <label>Total Fine:</label>
+                </div>
+              <div class="col-md-2">
+                <label>$ {{userFTs.pf}}</label>
+                </div>
+    
+                <div class="col-md-4">
+                    <form>
+                      <div class="col-md-6">
+                       
+                         
+                          <input class="form-control" id="finetf" name="finetf" placeholder="Enter Fine Amount" [formControl]="finetf">
+                       
+                      </div>
+                       <div class="col-md-3 mt-2 mb-2">
+                        <button class="btn btn-success" type="button" (click)='addFine(userFTs.id)'>Add Fine</button>
+                        </div>
+                      </form>
+                      </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                <label>Total Tax:</label>
+                </div>
+              <div class="col-md-2">
+                <label>$ {{userFTs.pt}}</label>
+                </div>
+                
+                <div class="col-md-4">
+                    <form>
+                      <div class="col-md-6">
+                       
+                         
+                          <input class="form-control" id="taxtf" name="taxtf" placeholder="Enter Tax Amount" [formControl]="taxtf">
+                       
+                      </div>
+                       <div class="col-md-3 mt-2 mb-2">
+                        <button class="btn btn-success" type="button" (click)='addTax(userFTs.id)'>Add Tax</button>
+                        </div>
+                      </form>
+                      </div>  
+            </div>
+            <br>
+            <br>
+        </div>
+    </mat-tab>
+    <mat-tab label="User Complaints">
+      <h3>Complaints</h3>
+      <div class="table-responsive"> 
+      <table class="table">
+        <tr>
+          <th>User ID</th>
+          <th>Complaint</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let comp of comps;" >
+          <td>{{comp.userid}}</td>
+          <td>{{comp.complaint}}</td>
+          <td> <button class="btn btn-danger" type="button" (click)='deleteComp(comp.id)'>Delete</button></td>
+        </tr>
+       
+      </table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>

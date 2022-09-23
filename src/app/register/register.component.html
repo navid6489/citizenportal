@@ -1,0 +1,60 @@
+<h1>Registration Form</h1>
+<form>
+  <div>
+    <label>
+      User Name:
+      <input class="form-control" id="un" name="un" placeholder="Your User Name" [formControl]="un">
+    </label>
+  </div>
+  <div>
+    <label>
+      Password:
+      <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Your Password" [formControl]="pwd">
+    </label>
+  </div>
+    <div>
+      <label>
+        Name:
+        <input class="form-control" id="name" name="name" placeholder="Your name" [formControl]="name">
+      </label>
+    </div>
+    <div>
+      <label>
+        Role:
+        <input class="form-control" id="role" name="role" placeholder="Your Role" [formControl]="role">
+      </label>
+    </div>
+
+    <div>
+      
+        
+        <input type="hidden" class="form-control" id="dl" name="dl" placeholder="Not Applied" [formControl]="dl" >
+    
+    </div>
+
+    <div>
+      
+        
+      <input type="hidden" class="form-control" id="dflag" name="dflag" placeholder="Not Applied" [formControl]="dflag" >
+  
+  </div>
+    <div>
+      
+        
+        <input type="hidden" class="form-control" id="pf" name="pf" placeholder="0" [formControl]="pf" readonly>
+      
+    </div>
+    <div>
+      
+        <input type="hidden" class="form-control" id="pt" name="pt" placeholder="0" [formControl]="pt" readonly>
+      
+    </div>
+    <div>
+      <label>
+        city:
+        <input class="form-control" id="city" name="city" placeholder="Your city" [formControl]="city">
+      </label>
+    </div>
+    <button class="btn btn-success me-2 mt-2 ms-2" type="button" (click)="save()">Send</button>
+    <a class="btn btn-danger mt-2 ms-2" routerLink="/" routerLinkActive="link-active">Back</a>
+  </form>
